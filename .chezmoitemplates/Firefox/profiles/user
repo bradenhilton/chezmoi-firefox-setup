@@ -1,0 +1,8 @@
+// Platform specific download dir
+{{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") }}
+user_pref('browser.download.lastDir', '$HOME/Downloads');
+{{- else if eq .chezmoi.os "windows" }}
+user_pref('browser.download.lastDir', '%USERPROFILE%\\Downloads');
+{{- end }}
+
+{{ template "Firefox/profiles/user.js" -}}

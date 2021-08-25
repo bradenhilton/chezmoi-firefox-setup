@@ -1,0 +1,10 @@
+README.md
+LICENSE
+
+{{ if ne .chezmoi.os "windows" }}
+AppData
+AppData/**
+{{ else }}
+.mozilla
+.mozilla/**
+{{ end }}
